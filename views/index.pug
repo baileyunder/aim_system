@@ -1,0 +1,32 @@
+extends layout
+block content
+    .container-fluid
+        .row.justify-content-around
+            fieldset.col-md-4
+                legend Add Vehicle to System
+                form(action="/create" method="POST")
+                    div.mb-1
+                        label.form-label(for="manufacturer") Manufacturer: *
+                        input.form-control(type="text" name="manufacturer" class="text-input" required)
+                    div.mb-1
+                        label.form-label(for="model") Model: *
+                        input.form-control(type="text" name="model" class="text-input" required)
+                    div.mb-1
+                        label.form-label(for="year") Year: *
+                        input.form-control(type="text" name="year" class="text-input" required)
+                    div.mb-1
+                        label.form-label(for="vin") VIN: *
+                        input.form-control(type="text" id="vin" name="vin" class="text-input" required)
+                    div.mb-3
+                        label.form-label(for="price") Purchase Price: *
+                        input.form-control(type="text" name="price" class="text-input" required)
+                    button.btn.btn-primary(type="submit") Add Vehicle
+            fieldset.col-md-4
+                legend Find and Edit Vehicle Entry
+                form.row(action="/update" method="GET")
+                    div.col-auto
+                        label.col-form-label(for="vin") VIN:
+                    div.col-auto
+                        input.form-control(type="text" id="vin" name="vin" class="text-input" required)
+                    div.col-auto
+                        button.btn.btn-primary(type="submit") Find Vehicle

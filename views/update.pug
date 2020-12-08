@@ -1,0 +1,31 @@
+extends layout
+block content
+    .container-fluid
+        .row.justify-content-left
+            div.col-md-1
+            fieldset.col-md-4
+                a.text-dark(href="/") &larr; Back
+                legend Add Vehicle to System
+                form(action="/update" method="POST")
+                    input(type='hidden' id='oldmanufacturer' name='oldmanufacturer' value=oldmanufacturer)
+                    input(type='hidden' id='oldmodel' name='oldmodel' value=oldmodel)
+                    input(type='hidden' id='oldyear' name='oldyear' value=oldyear)
+                    input(type='hidden' id='oldvin' name='oldvin' value=oldvin)
+                    input(type='hidden' id='oldprice' name='oldprice' value=oldprice)
+                    div.mb-1
+                        label.form-label(for="manufacturer") Manufacturer: *
+                        input.form-control(type="text" name="manufacturer" class="text-input" value=manufacturer required)
+                    div.mb-1
+                        label.form-label(for="model") Model: *
+                        input.form-control(type="text" name="model" class="text-input" value=model required)
+                    div.mb-1
+                        label.form-label(for="year") Year: *
+                        input.form-control(type="text" name="year" class="text-input" value=year required)
+                    div.mb-1
+                        label.form-label(for="vin") VIN: *
+                        input.form-control(type="text" id="vin" name="vin" class="text-input" value=vin required)
+                    div.mb-3
+                        label.form-label(for="price") Purchase Price: *
+                        input.form-control(type="text" name="price" class="text-input" value=price required)
+                    button.btn.btn-success.mx-3(type='submit' formaction="/update") Update
+                    button.btn.btn-danger.mx-3(type='submit' formaction="/delete") Delete
